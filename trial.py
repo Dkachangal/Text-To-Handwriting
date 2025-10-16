@@ -3,12 +3,35 @@ from matplotlib import pyplot as plt
 
 path = 'camera.jpg'
 
-x = Image.open('camera.jpg')
+x = Image.open("camera.jpg")
+a =  Image.open('frog.jpg')
+
+# x.thumbnail((500, 500))
+x.show()
+
+
 
 plt.imshow(x)
-plt.axis('off')
 plt.show()
 
+# x.show()
+# plt.imshow(x)
+# plt.show()
+
+# plt.imshow(a)
+# plt.show()
+
+# fig, axes = plt.subplots(1, 2, figsize=(10, 5))  # 1 row, 2 columns
+# axes[0].imshow(x)
+# axes[0].set_title('Camera')
+# axes[0].axis('off')
+
+# axes[1].imshow(a)
+# axes[1].set_title('Frog')
+# axes[1].axis('off')
+
+# plt.tight_layout()
+# plt.show()
 
 
 
