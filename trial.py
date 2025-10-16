@@ -1,18 +1,52 @@
 from PIL import Image, ImageChops, ImageFilter
 from matplotlib import pyplot as plt
 
-path = 'camera.jpg'
+banana = Image.open('banana.png')
+land = Image.open('land.jpeg')
 
-x = Image.open("camera.jpg")
-a =  Image.open('frog.jpg')
+# plt.imshow(land)
+# 
+# banana.paste(land, (500, 500))
+# plt.imshow(banana)
+# plt.imshow(banana)
+# plt.imshow(x)
+# plt.show()
 
-# x.thumbnail((500, 500))
-x.show()
+page = Image.open('Page.jpg')
+a = Image.open('a.jpg')
 
-
-
-plt.imshow(x)
+page.paste(a, (300,400))
+plt.imshow(page)
 plt.show()
+
+
+
+
+
+
+
+# plt.show()
+# merg = ImageChops.multiply(banana, land)
+# plt.show()
+# plt.show()
+# plt.show()
+# plt.imshow(merg)
+# plt.show()
+# path = 'camera.jpg'
+
+# x = Image.open("camera.jpg")
+# a =  Image.open('frog.jpg')
+
+# plt.imshow(x)
+# plt.show()
+
+# merged = ImageChops.multiply(x, a)
+# plt.imshow(merged)
+# plt.show()
+
+# x.show()
+# x.thumbnail((500, 500))
+# plt.show()
 
 # x.show()
 # plt.imshow(x)
