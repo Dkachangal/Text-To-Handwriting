@@ -5,6 +5,9 @@ page = Image.open('page.jpg')
 a = Image.open('a.png')
 b = Image.open('b1.png')
 
+print(a.width)
+print(b.height)
+
 char = {
     "a": a,
     "b": b
@@ -13,9 +16,10 @@ char = {
 page.paste(char["a"], (596, 1337), char["a"])
 page.paste(char["b"], (640, 1322), char["b"])
 page.paste(char["a"], (149, 463), char["a"])
+
 plt.imshow(page)
 # plt.show()
-page.show()
+# page.show()
 
 
 
