@@ -1,20 +1,20 @@
 from PIL import Image, ImageChops, ImageFilter
 from matplotlib import pyplot as plt
 
-banana = Image.open('banana.png')
-land = Image.open('land.jpeg')
-
 page = Image.open('page.jpg')
-plt.imshow(page)
-
 a = Image.open('a.png')
-plt.imshow(a)
+b = Image.open('b1.png')
 
 page.paste(a, (596, 1337), a)
+page.paste(b, (640, 1322), b)
 plt.imshow(page)
-plt.show()
+# plt.show()
 page.show()
 
+char = {
+    "a": a,
+    "b": b
+}
 
 
 
@@ -23,11 +23,15 @@ page.show()
 # plt.imshow(land)
 #
 # banana.paste(land, (500, 500))
+# plt.imshow(page)
 # plt.imshow(banana)
 # plt.imshow(banana)
+# plt.imshow(a)
 # plt.imshow(x)
 # plt.show()
 
+# banana = Image.open('banana.png')
+# land = Image.open('land.jpeg')
 # page = Image.open('Page.jpg')
 # a = Image.open('a.jpg')
 
