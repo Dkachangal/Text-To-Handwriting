@@ -5,16 +5,20 @@ page = Image.open('page.jpg')
 a = Image.open('a.png')
 b = Image.open('b1.png')
 
-page.paste(a, (596, 1337), a)
-page.paste(b, (640, 1322), b)
-plt.imshow(page)
-# plt.show()
-page.show()
-
 char = {
     "a": a,
     "b": b
 }
+
+page.paste(char["a"], (596, 1337), char["a"])
+page.paste(char["b"], (640, 1322), char["b"])
+page.paste(char["a"], (149, 463), char["a"])
+plt.imshow(page)
+# plt.show()
+page.show()
+
+
+
 
 
 
