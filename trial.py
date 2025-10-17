@@ -98,5 +98,4 @@ plt.axis('off')
 # plt.tight_layout()
 plt.show()
 # plt.subplot(121),plt.imshow(x),plt.axis('off')
-
 """
