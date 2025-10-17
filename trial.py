@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 
 page = Image.open('page.jpg')
 a = Image.open('a.png')
-b = Image.open('b1.png')
+b = Image.open('b.png')
 
 print(a.width)
 print(b.height)
@@ -18,18 +18,17 @@ page.paste(char["b"], (640, 1322), char["b"])
 page.paste(char["a"], (149, 463), char["a"])
 
 plt.imshow(page)
+
+
+
+
+
+
 # plt.show()
 # page.show()
-
-
-
-
-
-
 # plt.show()
 # plt.show()
 # plt.imshow(land)
-#
 # banana.paste(land, (500, 500))
 # plt.imshow(page)
 # plt.imshow(banana)
