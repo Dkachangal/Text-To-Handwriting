@@ -6,6 +6,7 @@ a = Image.open('a.png')
 b = Image.open('b.png')
 c = Image.open('c1.png')
 p = Image.open('p3.jpg')
+space = Image.open('space.png')
 
 print(a.width)
 print(b.height)
@@ -13,23 +14,35 @@ print(b.height)
 char = {
     "a": a,
     "b": b,
-    "c": c
+    "c": c,
+    "space": space
 }
 
-plt.imshow(p)
+# plt.imshow(p)
 str = "cab"
 
 
+x = 100
 for i in str:
+    y = 200
+    hei = y - char[f"{i}"].height
+    p.paste(char[f"{i}"], (x, hei), char[f"{i}"])
 
-    p.paste(char[f"{i}"], (100, 200), char[f"{i}"])
-    if i != " ":
-        # p.paste(char["space"], (104, 200), char["space"])
-# p.show()
+    x+=40
+
+    # if i != " ":
+    #     p.paste(char["space"], (x, hei))
+plt.imshow(p)
+plt.show()
+
+
+
 
 # page.paste(char["c"], (120, 463), c)
 # page.paste(char["a"], (596, 1337), char["a"])
 # page.paste(char["b"], (170, 463), char["b"])
+# plt.imshow(p)
+# plt.show()
 # page.paste(char["a"], (149, 463), char["a"])
 
 # plt.imshow(page)
