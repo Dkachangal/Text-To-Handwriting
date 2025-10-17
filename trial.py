@@ -6,11 +6,9 @@ land = Image.open('land.jpeg')
 
 page = Image.open('page.jpg')
 plt.imshow(page)
-# plt.show()
 
-a = Image.open('a5.png')
+a = Image.open('a.png')
 plt.imshow(a)
-# plt.show()
 
 page.paste(a, (596, 1337), a)
 plt.imshow(page)
@@ -18,8 +16,12 @@ plt.show()
 page.show()
 
 
+
+
+# plt.show()
+# plt.show()
 # plt.imshow(land)
-# 
+#
 # banana.paste(land, (500, 500))
 # plt.imshow(banana)
 # plt.imshow(banana)
