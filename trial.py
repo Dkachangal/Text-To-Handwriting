@@ -4,6 +4,20 @@ from matplotlib import pyplot as plt
 banana = Image.open('banana.png')
 land = Image.open('land.jpeg')
 
+page = Image.open('page.jpg')
+plt.imshow(page)
+# plt.show()
+
+a = Image.open('a5.png')
+plt.imshow(a)
+# plt.show()
+
+page.paste(a, (596, 1337), a)
+plt.imshow(page)
+plt.show()
+page.show()
+
+
 # plt.imshow(land)
 # 
 # banana.paste(land, (500, 500))
@@ -12,18 +26,12 @@ land = Image.open('land.jpeg')
 # plt.imshow(x)
 # plt.show()
 
-page = Image.open('Page.jpg')
-a = Image.open('a.jpg')
+# page = Image.open('Page.jpg')
+# a = Image.open('a.jpg')
 
-page.paste(a, (300,400))
-plt.imshow(page)
-plt.show()
-
-
-
-
-
-
+# page.paste(a, (300,400))
+# plt.imshow(page)
+# plt.show()
 
 # plt.show()
 # merg = ImageChops.multiply(banana, land)
