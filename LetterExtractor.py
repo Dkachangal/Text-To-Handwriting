@@ -3,7 +3,7 @@ import numpy as np
 from skimage.filters import threshold_otsu   # For automatic threshold finding
 
 # 1. Load the image
-img = Image.open("d.jpg").convert("L")  # 'L' means grayscale
+img = Image.open("Dollar.jpg").convert("L")  # 'L' means grayscale
 gray = np.array(img)
 
 # 2. Automatically find a good threshold
@@ -26,4 +26,4 @@ rgba[..., 3] = mask * 255  # Alpha channel: 255 = opaque, 0 = transparent
 # rgba[..., 3] = gaussian_filter(rgba[..., 3], sigma=0.7)
 
 # 6. Save the cleaned image
-Image.fromarray(rgba).save("d3_clean.png")
+Image.fromarray(rgba).save("Dollar1.png")
