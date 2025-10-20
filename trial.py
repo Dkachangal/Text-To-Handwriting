@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 page = Image.open('page.jpg')
 a = Image.open('a.png')
 b = Image.open('b.png')
-c = Image.open('c1.png')
+c = Image.open('d.png')
 p = Image.open('p3.jpg')
 space = Image.open('space.png')
 
