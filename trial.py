@@ -1,10 +1,16 @@
 from PIL import Image, ImageChops, ImageFilter
 from matplotlib import pyplot as plt
+from pathlib import Path
+
+
+charDir = Path('Characters')
+new = charDir/'f1.png'
+i = Image.open(new)
 
 page = Image.open('page.jpg')
-a = Image.open('a.png')
-b = Image.open('b.png')
-c = Image.open('d3_clean.png')
+a = Image.open('d1.png')
+b = Image.open('d1.png')
+c = Image.open('d1.png')
 p = Image.open('p3.jpg')
 space = Image.open('space.png')
 
@@ -15,11 +21,12 @@ char = {
     "a": a,
     "b": b,
     "c": c,
+    "i": i,
     "space": space
 }
 
 # plt.imshow(p)
-str = "cab"
+str = "cabi"
 
 
 x = 100

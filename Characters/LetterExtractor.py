@@ -8,19 +8,21 @@ from skimage.filters import threshold_otsu   # For automatic threshold finding
 chars = {}
 
 for i in "fghijklmnopqrstuvwxyz":
-    i = Image.open(f"{i}.jpg").convert("L")
-    chars[f"{i}"] = i
-    print(i)
-# for i in "fghijklmnopqrstuvwxyz":
-    # chars[f"{i}"] = i
+    img = Image.open(f"{i}.jpg").convert("L")
+    gray = np.array(img)
+    thresh = threshold_otsu(gray)
+    mask = gray < thresh
 
-# dict = {
-#     "a": "Hello",
-# }
-# for i in dict:
-#     print(dict[i])
-
+    rgba = np.zeros((gray.shape[0], gray.shape[1], 4), dtype=np.uint8)
+    rgba[..., 0] = gray        # Red
+    rgba[..., 1] = gray        # Green 
+    rgba[..., 2] = gray        # Blue 
+    rgba[..., 3] = mask * 255  #transparent
+    # # save image:
+    Image.fromarray(rgba).save(f"{i}1.png")
+    chars[f"{i}"] = img
 # for i in chars:
+#     print(chars[i])
     
 """
 img = Image.open("a.jpg").convert("L")  # 'L' means grayscale
@@ -47,5 +49,4 @@ rgba[..., 3] = mask * 255  # Alpha channel: 255 = opaque, 0 = transparent
 
 # 6. Save the cleaned image
 # Image.fromarray(rgba).save("Dollar1.png")
-
 """
