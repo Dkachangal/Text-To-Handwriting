@@ -4,13 +4,14 @@ from pathlib import Path
 
 
 charDir = Path('Characters')
-new = charDir/'f1.png'
-i = Image.open(new)
+new = charDir / 'f1.png'
+img_i = Image.open(new)
 
+# load images; convert page to RGBA so we can paste with alpha masks safely
 page = Image.open('page.jpg')
-a = Image.open('d1.png')
-b = Image.open('d1.png')
-c = Image.open('d1.png')
+a = Image.open('a1.png')
+b = Image.open('h1.png')
+c = Image.open('i1.png')
 p = Image.open('p3.jpg')
 space = Image.open('space.png')
 
@@ -21,26 +22,46 @@ char = {
     "a": a,
     "b": b,
     "c": c,
-    "i": i,
+    # use the image object loaded earlier (renamed to img_i to avoid shadowing)
+    "i": img_i,
     "space": space
 }
-
-# plt.imshow(p)
 str = "cabi"
-
-
 x = 100
-for i in str:
-    y = 200
-    hei = y - char[f"{i}"].height
-    p.paste(char[f"{i}"], (x, hei), char[f"{i}"])
+p = p.convert("RGBA")
+text = "cabi"
+# for ch in text:
+#     y = 200
+#     img = char[ch]
+#     if img.mode != 'RGBA':
+#         img_rgba = img.convert('RGBA')
+#     else:
+#         img_rgba = img
 
-    x+=40
+#     hei = y - img_rgba.height
+#     p.paste(img_rgba, (x, hei), img_rgba)
+#     x += 40
+def it2():
+    global p
+    str = "cabi"
+    x = 100
+    p = p.convert("RGBA")
+    text = "cabi"
+    for ch in text:
+        y = 200
+        img = char[ch]
+        if img.mode != 'RGBA':
+            img_rgba = img.convert('RGBA')
+        else:
+            img_rgba = img
 
-    # if i != " ":
-    #     p.paste(char["space"], (x, hei))
-plt.imshow(p)
-p.show()
+        hei = y - img_rgba.height
+        p.paste(img_rgba, (x, hei), img_rgba)
+        x += 40
+it2()
+plt.imshow(p.convert('RGB'))
+plt.axis('off')
+plt.show()
 # plt.show()
 
 
