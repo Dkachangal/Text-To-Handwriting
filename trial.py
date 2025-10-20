@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 page = Image.open('page.jpg')
 a = Image.open('a.png')
 b = Image.open('b.png')
-c = Image.open('d.png')
+c = Image.open('d3_clean.png')
 p = Image.open('p3.jpg')
 space = Image.open('space.png')
 
@@ -33,7 +33,8 @@ for i in str:
     # if i != " ":
     #     p.paste(char["space"], (x, hei))
 plt.imshow(p)
-plt.show()
+p.show()
+# plt.show()
 
 
 
