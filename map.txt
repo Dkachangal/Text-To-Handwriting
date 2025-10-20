@@ -1,0 +1,1 @@
+INPUT IMAGES -> PNG CREATOR.py (creates png and saves in system in dictionary) -> INPUT STRING -> ITERATE THE STRING (paste each char on the page, adjust spaces and paragraphs.) -> DISPLAY THE IMAGE.
