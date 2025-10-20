@@ -36,7 +36,7 @@ def jpg2png():
         # update the code so as it creates a new folder and saves the image there rather than this location
         # Image.fromarray(rgba).save(f"{i}1.png")
         # chars[i] = img
-# jpg2png()
+
 def createDict():
     for i in str:
         new = JpgimgPath/f'{i}1.png'
@@ -50,51 +50,21 @@ chars[" "] = space # defining space
 
 # LET THE STRING FROM USER BE :
 user_data = "this is the user defined string it is the first sentence"
+
 # Let the Page selected by the user be page:
 page = Image.open('p3.jpg')
 
 # FUNCTION 3 to iterate the user defined string and paste each element on the page
+# WRITING
 def iterateUserStr():
-
-    global page
-    page = page.convert("RGBA")
-    x = 100
-    # global x
-    y = 200
-    for i in user_data:
-        ch = chars[i]
-        if ch.mode != 'RGBA':
-            img_rgba = ch.convert('RGBA')
-        else:
-            img_rgba = ch
-
-        datas = img_rgba.getdata()
-        new_data = []
-        for item in datas:
-            # item = (R, G, B, A)
-            # if the pixel is near-white, make it fully transparent
-            if item[0] > 240 and item[1] > 240 and item[2] > 240:
-                new_data.append((255, 255, 255, 0))
-            else:
-                new_data.append(item)
-        img_rgba.putdata(new_data)
-
-        hei = y - img_rgba.height
-        page.paste(img_rgba, (x, hei), img_rgba)
-        x += 40
-        
-    plt.imshow(page.convert('RGB'))
-    plt.axis('off')
-
-def it2():
     global page
     global user_data
-    str = "cabi"
     x = 100
+    y = 200
+
     page = page.convert("RGBA")
-    text = "cabi"
+
     for ch in user_data:
-        y = 200
         img = chars[ch]
         if img.mode != 'RGBA':
             img_rgba = img.convert('RGBA')
@@ -104,6 +74,7 @@ def it2():
         hei = y - img_rgba.height
         page.paste(img_rgba, (x, hei), img_rgba)
         x +=25
-it2()
-# iterateUserStr()
-page.show()
+    plt.imshow(page)
+    plt.show()
+
+iterateUserStr()
