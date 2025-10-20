@@ -26,39 +26,35 @@ char = {
     "i": img_i,
     "space": space
 }
+
+# plt.imshow(p)
 str = "cabi"
+
+
 x = 100
+# ensure background is RGBA so alpha masks work
 p = p.convert("RGBA")
+
+# don't shadow built-ins like `str` or variable names like `i`.
 text = "cabi"
-# for ch in text:
-#     y = 200
-#     img = char[ch]
-#     if img.mode != 'RGBA':
-#         img_rgba = img.convert('RGBA')
-#     else:
-#         img_rgba = img
 
-#     hei = y - img_rgba.height
-#     p.paste(img_rgba, (x, hei), img_rgba)
-#     x += 40
-def it2():
-    global p
-    str = "cabi"
-    x = 100
-    p = p.convert("RGBA")
-    text = "cabi"
-    for ch in text:
-        y = 200
-        img = char[ch]
-        if img.mode != 'RGBA':
-            img_rgba = img.convert('RGBA')
-        else:
-            img_rgba = img
+for ch in text:
+    y = 200
+    img = char[ch]
+    # make sure pasted image has an alpha channel; if not, convert and create an alpha mask
+    if img.mode != 'RGBA':
+        img_rgba = img.convert('RGBA')
+    else:
+        img_rgba = img
 
-        hei = y - img_rgba.height
-        p.paste(img_rgba, (x, hei), img_rgba)
-        x += 40
-it2()
+    hei = y - img_rgba.height
+    # when base (p) is RGBA, we can safely paste using the image itself as mask
+    p.paste(img_rgba, (x, hei), img_rgba)
+    x += 40
+
+    # if i != " ":
+    #     p.paste(char["space"], (x, hei))
+# convert to RGB for display with matplotlib (it doesn't always handle RGBA the same way)
 plt.imshow(p.convert('RGB'))
 plt.axis('off')
 plt.show()

@@ -10,11 +10,11 @@ JpgimgPath = Path('Characters')
  
 chars = {}
 
-str = "abcdefghijklmnopqrstuvwxyz"
+str = "fghijklmnopqrstuvwxyz"
 
 for i in str:
     new = JpgimgPath/f'{i}.jpg'
-    img = Image.open(f"{i}.jpg").convert("L")
+    img = Image.open(new).convert("L")
     gray = np.array(img)
     thresh = threshold_otsu(gray)
     mask = gray < thresh
@@ -30,3 +30,4 @@ for i in str:
 
     Image.fromarray(rgba).save(f"{i}1.png")
     chars[f"{i}"] = img
+

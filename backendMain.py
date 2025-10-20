@@ -14,22 +14,22 @@ chars = {}
 str = "abcdefghijklmnopqrstuvwxyz"
 
 # FUNCTION 2 Defines image in python + convert each image into image1.png + inserts it in dictionary chars
-# def jpg2png():
-#     global chars
-#     str = "abcdefghijklmnopqrstuvwxyz"
-#     for i in str:
-#         new = JpgimgPath/f'{i}.jpg'
-#         img = Image.open(new).convert("L")
+def jpg2png():
+    global chars
+    str = "abcdefghijklmnopqrstuvwxyz"
+    for i in str:
+        new = JpgimgPath/f'{i}.jpg'
+        img = Image.open(new).convert("L")
 
-#         gray = np.array(img)
-#         thresh = threshold_otsu(gray)
-#         mask = gray < thresh
+        gray = np.array(img)
+        thresh = threshold_otsu(gray)
+        mask = gray < thresh
 
-#         rgba = np.zeros((gray.shape[0], gray.shape[1], 4), dtype=np.uint8)
-#         rgba[..., 0] = gray        # Red
-#         rgba[..., 1] = gray        # Green 
-#         rgba[..., 2] = gray        # Blue 
-#         rgba[..., 3] = mask * 255  #transparent
+        rgba = np.zeros((gray.shape[0], gray.shape[1], 4), dtype=np.uint8)
+        rgba[..., 0] = gray        # Red
+        rgba[..., 1] = gray        # Green 
+        rgba[..., 2] = gray        # Blue 
+        rgba[..., 3] = mask * 255  #transparent
 
         # save image:
         # TO DO: 
@@ -40,7 +40,7 @@ str = "abcdefghijklmnopqrstuvwxyz"
 def createDict():
     for i in str:
         new = JpgimgPath/f'{i}1.png'
-        img = Image.open(new).convert("L")
+        img = Image.open(new)
         chars[i] = img
 
 createDict()
@@ -88,11 +88,12 @@ def iterateUserStr():
 
 def it2():
     global page
+    global user_data
     str = "cabi"
     x = 100
     page = page.convert("RGBA")
     text = "cabi"
-    for ch in text:
+    for ch in user_data:
         y = 200
         img = chars[ch]
         if img.mode != 'RGBA':
@@ -102,7 +103,7 @@ def it2():
 
         hei = y - img_rgba.height
         page.paste(img_rgba, (x, hei), img_rgba)
-        x += 40
+        x +=25
 it2()
 # iterateUserStr()
 page.show()
