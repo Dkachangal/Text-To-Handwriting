@@ -2,6 +2,7 @@ from PIL import Image
 from pathlib import Path
 import numpy as np
 from skimage.filters import threshold_otsu
+import datetime
 
 # FUNCTION 1 to input and save jpg image in folder name characters
 # connects to the frontend
@@ -23,6 +24,8 @@ def jpg2png():
         rgba[..., 1] = gray        # Green 
         rgba[..., 2] = gray        # Blue 
         rgba[..., 3] = mask * 255  #transparent
-
+         # save image:
+        # TO DO: 
+        # update the code so as it creates a new folder and saves the image there rather than this location
         Image.fromarray(rgba).save(f"{i}1.png")
         chars[f"{i}"] = img
