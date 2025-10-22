@@ -72,6 +72,7 @@ def iterateUserStr():
         img = chars[ch]
         if x == 100:
             if ch == " ":
+                
                 continue
         if img.mode != 'RGBA':
             img_rgba = img.convert('RGBA')

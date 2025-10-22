@@ -48,47 +48,33 @@ createDict()
 space = Image.open('space.png')
 chars[" "] = space # defining space
 
-
-
-    # LET THE STRING FROM USER BE :
-
-user_data = input("Enter some data")
+# LET THE STRING FROM USER BE :
+user_data = "divyansh kachangal this is some text in the area this is some more text so as to increase the length of the sentence"
 user_data_list = list(user_data)
 # Let the Page selected by the user be page:
 page = Image.open('p3.jpg')
 # print(type(page.width))
 x_max = 100
-
-
-# word finder function
-def wordLenFinderpx(i, user_data_list):
-    word_len = 0
-    while i < len(user_data_list) and user_data_list[i] != " ":
-        word_len += chars[user_data_list[i]].width
-        i += 1
-    return word_len
-
+word_len = 0
 # FUNCTION 3 to iterate the user defined string and paste each element on the page
 # WRITING
 def iterateUserStr():
     global page
     global user_data
-    global x_max
     global user_data_list
+    global word_len
+    global x_max
     x = 100
 
     x_max= page.width
     y = 200
     page = page.convert("RGBA")
-    
-    for i in range(len(user_data_list)):
-        word_len = 0
-        # printing
-        print(user_data_list[i])
-        char = user_data_list[i]
-        img = chars[char]
+
+    for ch in range(len(user_data_list)):
+
+        img = chars[user_data_list[ch]]
         if x == 100:
-            if user_data_list[i] == " ":
+            if user_data_list[ch] == " ":
                 continue
         if img.mode != 'RGBA':
             img_rgba = img.convert('RGBA')
@@ -97,13 +83,19 @@ def iterateUserStr():
 
         hei = y - img_rgba.height
         page.paste(img_rgba, (x, hei), img_rgba)
-        # printing ends
-        # print(img_rgba.width)
+        # print(x, y)
+        print(img_rgba.width)
         # the new line conditioin
-
-        word_len = wordLenFinderpx(i, user_data_list)
-        
-        if (x + word_len> x_max):
+        word_len = 0
+        p = 0
+        if user_data_list[ch] == " ":
+                print(f"word len {p}")
+                if (p < len(user_data_list)):
+                    while user_data_list[p] != " ":
+                        word_len += chars[user_data_list[p]].width
+                        p+=1
+                    
+        if (x + word_len > x_max):
             x = 100
             y+=54
             x-=30
