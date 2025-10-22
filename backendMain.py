@@ -13,7 +13,7 @@ JpgimgPath = Path('characters')
 chars = {}
 str = "abcdefghijklmnopqrstuvwxyz"
 
-# FUNCTION 2 Defines image in python + convert each image into image1.png + inserts it in dictionary chars
+# FUNCTION 2 Defines image in python + convert each image into image1.png
 def jpg2png():
     global chars
     str = "abcdefghijklmnopqrstuvwxyz"
@@ -61,7 +61,6 @@ def iterateUserStr():
     global user_data
     x = 100
     y = 200
-
     page = page.convert("RGBA")
 
     for ch in user_data:
