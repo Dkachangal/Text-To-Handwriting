@@ -49,22 +49,30 @@ space = Image.open('space.png')
 chars[" "] = space # defining space
 
 # LET THE STRING FROM USER BE :
-user_data = "this is the user defined string it is the first sentence"
+user_data = "divyansh kachangal this is some text in the area this is some more text so as to increase the length of the sentence"
 
 # Let the Page selected by the user be page:
 page = Image.open('p3.jpg')
-
+# print(type(page.width))
+x_max = 100
 # FUNCTION 3 to iterate the user defined string and paste each element on the page
 # WRITING
 def iterateUserStr():
     global page
     global user_data
+    global x_max
     x = 100
+
+    x_max= page.width
     y = 200
     page = page.convert("RGBA")
 
     for ch in user_data:
+
         img = chars[ch]
+        if x == 100:
+            if ch == " ":
+                continue
         if img.mode != 'RGBA':
             img_rgba = img.convert('RGBA')
         else:
@@ -72,7 +80,18 @@ def iterateUserStr():
 
         hei = y - img_rgba.height
         page.paste(img_rgba, (x, hei), img_rgba)
-        x +=25
+        # print(x, y)
+        print(img_rgba.width)
+        # print(img_rgba.width)
+        # the new line conditioin
+        if (img_rgba.width + x > x_max-img_rgba.width+5):
+            x = 100
+            y+=54
+            x-=30
+
+        x +=30
+        
+
     plt.imshow(page)
     plt.show()
 
