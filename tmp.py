@@ -90,13 +90,12 @@ def iterateUserStr():
         word_len = 0
         p = 0
         if user_data_list[ch] == " ":
-                # print(f"word len {p}")
                 if (p < len(user_data_list)):
                     while user_data_list[p] != " ":
                         word_len += chars[user_data_list[p]].width
                         p+=1
                     
-        if (x + word_len > x_max):
+        if (x + word_len + 41> x_max):
             x = 100
             y+=54
             x-=30
@@ -104,7 +103,8 @@ def iterateUserStr():
             x +=30
         
 
-    plt.imshow(page)
-    plt.show()
+    # plt.imshow(page)
+    page.show()
+    # plt.show()
 
 iterateUserStr()

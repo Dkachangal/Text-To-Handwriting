@@ -24,16 +24,17 @@
 # for i in range(len(user_data_list)):
     # print(user_data_list[i])
 a = "hello world "
-x = a.split()
-print(x)
+x = list(a)
+for i in range(len(a[11:0:-1])):
+    print(i)
 
 
 
 
 
 
-if user_data_list[ch] == " ":
-                p = ch+1
-                while user_data_list[p] != " ":
-                    word_len += chars[user_data_list[p]].width
-                    p+=1
+# if user_data_list[ch] == " ":
+#                 p = ch+1
+#                 while user_data_list[p] != " ":
+#                     word_len += chars[user_data_list[p]].width
+#                     p+=1
