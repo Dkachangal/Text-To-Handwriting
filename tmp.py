@@ -50,6 +50,7 @@ chars[" "] = space # defining space
 
 # LET THE STRING FROM USER BE :
 user_data = "divyansh kachangal this is some text in the area this is some more text so as to increase the length of the sentence"
+user_data = input("Enter ")
 user_data_list = list(user_data)
 # Let the Page selected by the user be page:
 page = Image.open('p3.jpg')
@@ -84,12 +85,12 @@ def iterateUserStr():
         hei = y - img_rgba.height
         page.paste(img_rgba, (x, hei), img_rgba)
         # print(x, y)
-        print(img_rgba.width)
+        # print(img_rgba.width)
         # the new line conditioin
         word_len = 0
         p = 0
         if user_data_list[ch] == " ":
-                print(f"word len {p}")
+                # print(f"word len {p}")
                 if (p < len(user_data_list)):
                     while user_data_list[p] != " ":
                         word_len += chars[user_data_list[p]].width
