@@ -50,7 +50,7 @@ chars[" "] = space # defining space
 
 # LET THE STRING FROM USER BE :
 user_data = "divyansh kachangal this is some text in the area this is some more text so as to increase the length of the sentence"
-
+user_data = input("Enter ")
 # Let the Page selected by the user be page:
 page = Image.open('p3.jpg')
 # print(type(page.width))
@@ -82,7 +82,6 @@ def iterateUserStr():
         page.paste(img_rgba, (x, hei), img_rgba)
         # print(x, y)
         print(img_rgba.width)
-        # print(img_rgba.width)
         # the new line conditioin
         if (x + 41 > x_max-img_rgba.width):
             x = 100

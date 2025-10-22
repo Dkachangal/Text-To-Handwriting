@@ -61,10 +61,13 @@ x_max = 100
 
 
 # word finder function
-def wordLenFinderpx(char, user_data_word):
-    wor_len = char.width
-    for i in range(len(user_data_word)):
-        wor_len += user_data_word[i+1].width
+def wordLenFinderpx(i, user_data_list):
+    word_len = 0
+    while i < len(user_data_list) and user_data_list[i] != " ":
+        word_len += chars[user_data_list[i]].width
+        i += 1
+    return word_len
+
 # FUNCTION 3 to iterate the user defined string and paste each element on the page
 # WRITING
 def iterateUserStr():
@@ -77,13 +80,15 @@ def iterateUserStr():
     x_max= page.width
     y = 200
     page = page.convert("RGBA")
-
-    for ch in range(len(user_data_list)):
+    
+    for i in range(len(user_data_list)):
+        word_len = 0
         # printing
-        char = user_data_list[ch]
+        print(user_data_list[i])
+        char = user_data_list[i]
         img = chars[char]
         if x == 100:
-            if ch == " ":
+            if user_data_list[i] == " ":
                 continue
         if img.mode != 'RGBA':
             img_rgba = img.convert('RGBA')
@@ -93,10 +98,12 @@ def iterateUserStr():
         hei = y - img_rgba.height
         page.paste(img_rgba, (x, hei), img_rgba)
         # printing ends
-        print(img_rgba.width)
+        # print(img_rgba.width)
         # the new line conditioin
 
-        if (x + 41 > x_max-img_rgba.width):
+        word_len = wordLenFinderpx(i, user_data_list)
+        
+        if (x + word_len> x_max):
             x = 100
             y+=54
             x-=30

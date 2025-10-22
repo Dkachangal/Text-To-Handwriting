@@ -8,19 +8,14 @@
 # print(add(a, b))
 
 user_data = "This is some user data"
-user_data_list = list(user_data)
+user_data_list = user_data.split()
 
 # word len finder
 
-def wlf(char, user_data_list):
+def wlf(, user_data_list):
     word_len = 5
     
-    for i in range(len(user_data_list)):
-            
-            if (user_data_list[i] != " "):
-                    word_len += 5
-            else:
-                break
+    if ()
     return word_len
 char = "This"
 
