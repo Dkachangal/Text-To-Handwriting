@@ -9,6 +9,10 @@ Manager:
         color:(10, 32, 45, 2)
     Button:
         text:"First Page"
+        size_hint: 0.5, 0.5
+        color:(100, 23, 2, 1)
+        padding: 200
+        pos_hint: {'center_x':0.5, 'center_y':0.5}
         on_release:
             app.root.current = "First"
             root.manager.transition.direction = "up"
