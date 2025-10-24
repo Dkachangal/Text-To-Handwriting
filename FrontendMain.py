@@ -16,8 +16,6 @@ from kivy.uix.scrollview import ScrollView
 Window.size = (360, 640)  # width x height in pixels
 
 class TextToHandWriting(MDApp):
-    
-
     def build(self):
         pass
         """
