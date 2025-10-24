@@ -4,7 +4,6 @@ from pathlib import Path
 import numpy as np
 from skimage.filters import threshold_otsu
 import datetime
-
 # FUNCTION 1 to input and save jpg image in folder name characters
 # connects to the frontend
 # to make once front end input image box in done
@@ -94,5 +93,6 @@ def iterateUserStr():
 
     plt.imshow(page)
     plt.show()
+    # page.show()
 
 iterateUserStr()
