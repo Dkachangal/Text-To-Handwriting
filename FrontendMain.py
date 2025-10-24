@@ -1,4 +1,5 @@
 from kivymd.app import MDApp
+# from kivy.app import App
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.label import MDLabel
@@ -11,17 +12,14 @@ from kivy.uix.filechooser import FileChooserListView
 from kivymd.uix.button import MDRectangleFlatButton
 from kivy.uix.scrollview import ScrollView
 
+
 Window.size = (360, 640)  # width x height in pixels
 
 class TextToHandWriting(MDApp):
-    def addImage(self, addImages):
-        chooser = FileChooserListView(filters=['*.png', '*.jpg', '*.jpeg'])
-        chooser.bind(on_submit=self.selected)
-        self.screen.clear_widgets()
-        self.screen.add_widget(chooser)
+    
 
     def build(self):
-
+        pass
         """
         # Root screen
         screen = MDScreen()
@@ -91,6 +89,11 @@ class TextToHandWriting(MDApp):
         print("Gallery button pressed")
         # Here you can open a file chooser to select character images
         """
+        # pass
+
+class Home(Screen):
+    pass
+
 
 class Manager(ScreenManager):
     pass

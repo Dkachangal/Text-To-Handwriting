@@ -29,17 +29,17 @@ class FirstScreen(Screen):
 
 class txttoHand(App):
     
-    def btnClick(self, btn):
-        # global i
-        # print(f"{i} times pressed")
-        # i+=1
-        print("Hello World")
-    def btnRel(self, btn):
-        print("Realesed")
+    # def btnClick(self, btn):
+    #     # global i
+    #     # print(f"{i} times pressed")
+    #     # i+=1
+    #     print("Hello World")
+    # def btnRel(self, btn):
+    #     print("Realesed")
 
-    def printFromBtn(self, btnSubmit):
-        print(f"The txt1Bx has {self.txtBx1.text}")
-        print(f"The txtbx2 has {self.txtBx2.text}")
+    # def printFromBtn(self, btnSubmit):
+    #     print(f"The txt1Bx has {self.txtBx1.text}")
+    #     print(f"The txtbx2 has {self.txtBx2.text}")
 
     def build(self):
         
