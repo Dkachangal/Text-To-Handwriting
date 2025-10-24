@@ -1,5 +1,5 @@
 from kivymd.app import MDApp
-# from kivy.app import App
+from kivy.app import App
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.label import MDLabel
@@ -91,7 +91,6 @@ class TextToHandWriting(MDApp):
 
 class Home(Screen):
     pass
-
 
 class Manager(ScreenManager):
     pass

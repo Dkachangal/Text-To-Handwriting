@@ -4,19 +4,22 @@ Manager:
 
 <Home>:
     name: "Home"
-    Label:
+    MDLabel:
         text: "Hello World"
-        color:(10, 32, 45, 2)
+        padding:200
+        color:(0, 332, 45, 2)
     Button:
         text:"First Page"
         size_hint: 0.5, 0.5
-        color:(100, 23, 2, 1)
+        color:(100, 23, 23, 16)
         padding: 200
         pos_hint: {'center_x':0.5, 'center_y':0.5}
         on_release:
+            print("Hello".txt)
             app.root.current = "First"
             root.manager.transition.direction = "up"
 
 
 <ImageInsert>:
     name: "First"
+    color:(10, 32, 45, 2)
