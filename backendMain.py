@@ -4,12 +4,14 @@ from pathlib import Path
 import numpy as np
 from skimage.filters import threshold_otsu
 import datetime
+
+from mainFront import characters
 # FUNCTION 1 to input and save jpg image in folder name characters
 # connects to the frontend
 # to make once front end input image box in done
 
 JpgimgPath = Path('characters')
-chars = {}
+chars = characters
 str = "abcdefghijklmnopqrstuvwxyz"
 
 # FUNCTION 2 Defines image in python + convert each image into image1.png

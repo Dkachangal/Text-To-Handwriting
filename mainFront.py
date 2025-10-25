@@ -5,6 +5,8 @@ from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.core.window import Window
 from kivy.uix.floatlayout import FloatLayout
 from kivymd.uix.button import MDFillRoundFlatButton
+from kivymd.uix.button import MDIconButton
+from kivy.uix.button import Button
 from kivy.lang import Builder
 from plyer import filechooser
 from PIL import Image
@@ -43,19 +45,14 @@ class TextToHandd(MDApp):
     def build(self):
         
         return Manager()
-    # def getChar(self):
-    #     charByUser = self.ids.userChar.text
-    #     print(f"The char is {charByUser}")
-    #     # img = Image.open(tmep)
-    #     characters[f"{charByUser}"] = 1
-    #     return charByUser
+    
     
     def open_file_picker(self, source):
         filechooser.open_file(
             title="Select an image",
             filters=[("Image files", "*.png;*.jpg;*.jpeg")],
             on_selection=lambda selection: self.file_selected(selection, source),
-            # on_selection=self.file_selected
+            
         )
 
     def call_getChar(self):
@@ -82,8 +79,7 @@ class TextToHandd(MDApp):
                 path = os.path.normpath(selected_file)
                 x = Image.open(path)
                 characters[ch] = x
-                for i in characters:
-                    print(characters[i])
+
         else:
             print("cancelled")
 
