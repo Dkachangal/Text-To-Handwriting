@@ -39,12 +39,13 @@
             font_size: 20
 
         MDFillRoundFlatButton:
+            id: page
             text: "Add Page"
             size_hint: None, None
             size: 600, 120
             pos_hint: {'center_x': 0.5, 'center_y': 0.3}
             md_bg_color: 0.545, 0.518, 0.310, 1
-            on_release: app.open_file_picker()
+            on_release: app.open_file_picker("page")
 
 
         MDFillRoundFlatButton:
@@ -54,15 +55,8 @@
             pos_hint: {'center_x': 0.5, 'center_y': 0.2}
             md_bg_color: 0.545, 0.518, 0.310, 1
             on_release: app.call_getChar()
-            on_release: app.open_file_picker() 
+            on_release: app.open_file_picker("character") 
 
-        MDFillRoundFlatButton:
-            text: "Add Handwriting"
-            size_hint: None, None
-            size: 600, 120
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            md_bg_color: 0.545, 0.518, 0.310, 1
-            on_release: app.file_selected()
 <InputText@Screen>:
     name: "inputtext"
     MDLabel:

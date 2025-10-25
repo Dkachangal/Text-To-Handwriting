@@ -29,7 +29,9 @@ class InputImage(Screen):
         characters[charByUser] = charByUser 
         return charByUser
     
-
+    
+        
+    
 class FilePickerScreen(Screen):
     pass
 
@@ -50,37 +52,41 @@ class TextToHandd(MDApp):
     #     characters[f"{charByUser}"] = 1
     #     return charByUser
     
-    def open_file_picker(self):
+    def open_file_picker(self, source):
         filechooser.open_file(
             title="Select an image",
             filters=[("Image files", "*.png;*.jpg;*.jpeg")],
-            on_selection=self.file_selected
+            on_selection=lambda selection: self.file_selected(selection, source),
+            # on_selection=self.file_selected
         )
 
     def call_getChar(self):
     
-        input_screen = self.root.get_screen("inputimg")  # 'inputimg' = name of the screen
-        char = input_screen.getChar()  # Call the method from InputImage
-        
+        input_screen = self.root.get_screen("inputimg")
+        char = input_screen.getChar()  
         print("Character from InputImage:", char)
         return char
     
-    def file_selected(self, selection):
+    def file_selected(self, selection, source):
         if selection:
             selected_file = selection[0]
-
-            print(type(selected_file))
-            ch = self.call_getChar()
-            path = rf"{selected_file}"
-            x = Image.open(selected_file)
-            characters[ch] = x
-            print(f"THE SELECTED FILE IS {selected_file}")
-            print("Selected file:", selected_file)
             
+            if source == "page":
+                path = os.path.normpath(selected_file)
+                x = Image.open(path)
+                page['page'] = x
+                for i in page:
+                    print(i)
+
+            elif source == "character":
+                print(type(selected_file))
+                ch = self.call_getChar()
+                path = os.path.normpath(selected_file)
+                x = Image.open(path)
+                characters[ch] = x
+                for i in characters:
+                    print(i)
         else:
             print("cancelled")
-
-
-
 
 TextToHandd().run()
