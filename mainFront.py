@@ -1,4 +1,3 @@
-# from kivy.app import App
 from kivymd.app import MDApp
 from kivy.uix.label import Label
 from kivymd.uix.label import MDLabel
@@ -8,10 +7,13 @@ from kivy.uix.floatlayout import FloatLayout
 from kivymd.uix.button import MDFillRoundFlatButton
 from kivy.lang import Builder
 from plyer import filechooser
+from PIL import Image
+from kivymd.uix.textfield import MDTextField
 
 Window.size=(270, 600)
 
-
+page = {}
+characters = {}
 
 md_bg_color = (1, 0.9, 0.3, 1)
 
@@ -19,10 +21,18 @@ class Manager(ScreenManager):
     pass
 
 class InputImage(Screen):
-    pass
+    def getChar(self):
+        charByUser = self.ids.userChar.text
+        print(f"The char is {charByUser}")
+        # img = Image.open(tmep)
+    
+        characters[f"{charByUser}"] = 1
+        return charByUser
+    
 
 class FilePickerScreen(Screen):
     pass
+
 class InputText(Screen):
     pass
 
@@ -33,16 +43,43 @@ class TextToHandd(MDApp):
     def build(self):
         
         return Manager()
+    # def getChar(self):
+    #     charByUser = self.ids.userChar.text
+    #     print(f"The char is {charByUser}")
+    #     # img = Image.open(tmep)
+    #     characters[f"{charByUser}"] = 1
+    #     return charByUser
+    
     def open_file_picker(self):
-        # opens file manager to pick image
         filechooser.open_file(
             title="Select an image",
             filters=[("Image files", "*.png;*.jpg;*.jpeg")],
             on_selection=self.file_selected
         )
+
+    def call_getChar(self):
+    
+        input_screen = self.root.get_screen("inputimg")  # 'inputimg' = name of the screen
+        char = input_screen.getChar()  # Call the method from InputImage
+        print("Character from InputImage:", char)
+        return char
+    
     def file_selected(self, selection):
         if selection:
             selected_file = selection[0]
+            # do 
+            x = Image.open(selected_file)
+            # input_screen = self.root.get_screen("inputimg")
+            # ch = input_screen.getChar()
+            
+
+            # characters[""]
+            # then add to some dictionary
+            # then import
+
             print("Selected file:", selected_file)
+
+
+
 
 TextToHandd().run()

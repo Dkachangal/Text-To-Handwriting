@@ -27,23 +27,34 @@
             text_size: self.width, None
             halign: "center"
             valign: "middle"
-            pos_hint: {"center_x": 0.5, "top": 0.9}
+            pos_hint: {"center_x": 0.5, "top": 0.92}
+
+        MDTextField:
+            id: userChar
+            hint_text: "Enter a single character"
+            helper_text: "This will be converted to handwriting"
+            helper_text_mode: "on_focus"  
+            size_hint_x: 0.8
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            font_size: 20
 
         MDFillRoundFlatButton:
             text: "Add Page"
             size_hint: None, None
             size: 600, 120
-            pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+            pos_hint: {'center_x': 0.5, 'center_y': 0.3}
             md_bg_color: 0.545, 0.518, 0.310, 1
             on_release: app.open_file_picker()
+
 
         MDFillRoundFlatButton:
             text: "Add Handwriting"
             size_hint: None, None
             size: 600, 120
-            pos_hint: {'center_x': 0.5, 'center_y': 0.35}
+            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
             md_bg_color: 0.545, 0.518, 0.310, 1
-            on_release: app.open_camera()  
+            on_release: app.call_getChar()
+            on_release: app.open_file_picker()  
 
 <InputText@Screen>:
     name: "inputtext"
