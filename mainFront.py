@@ -9,6 +9,7 @@ from kivy.lang import Builder
 from plyer import filechooser
 from PIL import Image
 from kivymd.uix.textfield import MDTextField
+import os
 
 Window.size=(270, 600)
 
@@ -23,10 +24,9 @@ class Manager(ScreenManager):
 class InputImage(Screen):
     def getChar(self):
         charByUser = self.ids.userChar.text
-        print(f"The char is {charByUser}")
         # img = Image.open(tmep)
-    
-        characters[f"{charByUser}"] = 1
+        
+        characters[charByUser] = charByUser 
         return charByUser
     
 
@@ -61,23 +61,24 @@ class TextToHandd(MDApp):
     
         input_screen = self.root.get_screen("inputimg")  # 'inputimg' = name of the screen
         char = input_screen.getChar()  # Call the method from InputImage
+        
         print("Character from InputImage:", char)
         return char
     
     def file_selected(self, selection):
         if selection:
             selected_file = selection[0]
-            # do 
+
+            print(type(selected_file))
+            ch = self.call_getChar()
+            path = rf"{selected_file}"
             x = Image.open(selected_file)
-            # input_screen = self.root.get_screen("inputimg")
-            # ch = input_screen.getChar()
-            
-
-            # characters[""]
-            # then add to some dictionary
-            # then import
-
+            characters[ch] = x
+            print(f"THE SELECTED FILE IS {selected_file}")
             print("Selected file:", selected_file)
+            
+        else:
+            print("cancelled")
 
 
 
