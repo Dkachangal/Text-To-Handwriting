@@ -1,12 +1,59 @@
 <Manager>:
-    inputImage:
-    inputText:
-    displayOutput:
+    InputImage:
+    InputText:
+    DisplayOutput:
 
-<inputImage>:
+<InputImage>:
     name:"inputimg"
-    Label:
-        text: "Hello from KV file!"
-        font_size: 24
-        pos_hint:{'center_x':0.5, 'center_y':0.5}
-        color: 0.2, 0.29, 0.2, 1
+    FloatLayout:
+        canvas.before:
+            Color:  
+                rgba:(0.992, 0.988, 0.941, 1)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        MDLabel:
+            text: "[b]Text To Handwriting Generator[/b]"
+            markup: True
+            theme_text_color: "Custom"
+            text_color: 0.545, 0.518, 0.310, 1
+            font_size: 55
+            bold: True
+            font_name: "fonts/FrankRuhlLibre-VariableFont_wght.ttf"
+
+            size_hint: None, None
+            width: root.width * 0.9       
+            height: self.texture_size[1] 
+
+            text_size: self.width, None   
+            halign: "center"              
+            valign: "middle"    
+            pos_hint: {"center_x": 0.5, "top": 0.9}
+                
+        MDFillRoundFlatButton:
+            text: "Add Page"
+            size_hint_y: None
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            valign: "top"
+            size_hint: None, None
+            size: 600, 120
+            on_release:
+                print("Hello World!!!")
+            md_bg_color: 0.545, 0.518, 0.310, 1
+
+        MDFillRoundFlatButton:
+            text: "Add Handwriting"
+            size_hint_y: None
+            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+            valign: "top"
+            size_hint: None, None
+            size: 600, 120
+            on_release:
+                print("Hello World!!!")
+            md_bg_color: 0.545, 0.518, 0.310, 1
+     
+<InputText>:
+    name: "inputtext"
+
+<DisplayOutput>:
+    name: "displayoutput"
