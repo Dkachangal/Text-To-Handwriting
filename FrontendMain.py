@@ -89,10 +89,10 @@ class TextToHandWriting(MDApp):
         """
         # pass
 
-class Home(Screen):
+class Manager(ScreenManager):
     pass
 
-class Manager(ScreenManager):
+class Home(Screen):
     pass
 
 class ImageInsert(Screen):

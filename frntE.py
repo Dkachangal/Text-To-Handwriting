@@ -15,7 +15,8 @@ from kivy.uix.textinput import TextInput
 
 from kivy.uix.screenmanager import Screen, ScreenManager
 
-Window.clearcolor = (0, 0, 0, 0)
+Window.clearcolor = (1, 90, 3, 6)
+
 
 
 class Manager(ScreenManager):

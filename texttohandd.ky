@@ -1,0 +1,11 @@
+<Manager>:
+    inputImage:
+    inputText:
+    displayOutput:
+
+<inputImage>:
+    name="inputimg"
+    Label:
+        text: "Hello from KV file!"
+        font_size: 24
+        color: 0.2, 0.2, 0.2, 1
