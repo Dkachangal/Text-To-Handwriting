@@ -28,9 +28,7 @@ class InputImage(Screen):
         
         characters[charByUser] = charByUser 
         return charByUser
-    
-    
-        
+
     
 class FilePickerScreen(Screen):
     pass
@@ -70,7 +68,7 @@ class TextToHandd(MDApp):
     def file_selected(self, selection, source):
         if selection:
             selected_file = selection[0]
-            
+
             if source == "page":
                 path = os.path.normpath(selected_file)
                 x = Image.open(path)
@@ -85,7 +83,7 @@ class TextToHandd(MDApp):
                 x = Image.open(path)
                 characters[ch] = x
                 for i in characters:
-                    print(i)
+                    print(characters[i])
         else:
             print("cancelled")
 
