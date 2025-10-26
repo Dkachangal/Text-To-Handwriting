@@ -97,14 +97,31 @@
             valign: "middle"
             pos_hint: {"center_x": 0.5, "top": 0.92}
 
-        MDTextField:
+        TextInput:
             id: data
             hint_text: "Enter text"
             helper_text: "This will be added on the page"
+            
+            size_hint_x: None
+            size_hint_y: None
+            height:350
+            width:500
             helper_text_mode: "on_focus"  
             size_hint_x: 0.8
-            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            pos_hint: {"center_x": 0.5, "center_y": 0.45}
             font_size: 20
+        
+        MDIconButton:
+            icon: "pencil-circle"
+            size_hint: None, None
+            size: 60, 60           # button size
+            icon_size: "50sp"        # icon inside the button
+            pos_hint: {"center_x": 0.5, "center_y": 0.1}
+            theme_icon_color: "Custom"
+            icon_color: 0.545, 0.518, 0.310, 1
+            on_release:
+                on_release: app.call_inpTxt()
+            
 
 <DisplayOutput@Screen>:
     name: "displayoutput"

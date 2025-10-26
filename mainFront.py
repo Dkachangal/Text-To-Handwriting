@@ -11,6 +11,7 @@ from kivy.lang import Builder
 from plyer import filechooser
 from PIL import Image
 from kivymd.uix.textfield import MDTextField
+from kivy.uix.textinput import TextInput
 import os
 
 Window.size=(270, 600)
@@ -36,7 +37,10 @@ class FilePickerScreen(Screen):
     pass
 
 class InputText(Screen):
-    pass
+    def getText(self):
+        dta = self.ids.data.text
+        return dta
+    
 
 class DisplayOutput(Screen):
     pass
@@ -61,6 +65,13 @@ class TextToHandd(MDApp):
         char = input_screen.getChar()  
         print("Character from InputImage:", char)
         return char
+    
+    def call_inpTxt(self):
+    
+        input_screen = self.root.get_screen("inputtext")
+        text = input_screen.getText()  
+        print(text)
+        return text
     
     def file_selected(self, selection, source):
         if selection:
