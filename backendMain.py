@@ -57,7 +57,7 @@ page = Image.open('p3.jpg')
 # print(type(page.width))
 x_max = 100
 # FUNCTION 3 to iterate the user defined string and paste each element on the page
-# WRITING
+# WRITINGzz
 def iterateUserStr():
     global page
     global user_data

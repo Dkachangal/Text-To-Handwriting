@@ -19,7 +19,7 @@ Window.size=(270, 600)
 page = {}
 characters = {}
 
-md_bg_color = (1, 0.9, 0.3, 1)
+# md_bg_color = (1, 0.9, 0.3, 1)
 
 class Manager(ScreenManager):
     pass
@@ -32,7 +32,6 @@ class InputImage(Screen):
         characters[charByUser] = charByUser 
         return charByUser
 
-    
 class FilePickerScreen(Screen):
     pass
 
@@ -41,7 +40,6 @@ class InputText(Screen):
         dta = self.ids.data.text
         return dta
     
-
 class DisplayOutput(Screen):
     pass
 
