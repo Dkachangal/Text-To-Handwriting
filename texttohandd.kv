@@ -74,9 +74,37 @@
 
 <InputText@Screen>:
     name: "inputtext"
-    MDLabel:
-        text: "Input Text Screen"
-        halign: "center"
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.992, 0.988, 0.941, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        MDLabel:
+            text: "[b]Add Your Text[/b]"
+            markup: True
+            theme_text_color: "Custom"
+            text_color: 0.545, 0.518, 0.310, 1
+            font_size: 55
+            bold: True
+            font_name: "fonts/FrankRuhlLibre-VariableFont_wght.ttf"
+            size_hint: None, None
+            width: root.width * 0.9
+            height: self.texture_size[1]
+            text_size: self.width, None
+            halign: "center"
+            valign: "middle"
+            pos_hint: {"center_x": 0.5, "top": 0.92}
+
+        MDTextField:
+            id: data
+            hint_text: "Enter text"
+            helper_text: "This will be added on the page"
+            helper_text_mode: "on_focus"  
+            size_hint_x: 0.8
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            font_size: 20
 
 <DisplayOutput@Screen>:
     name: "displayoutput"
