@@ -65,7 +65,9 @@
             pos_hint: {"center_x": 0.5, "center_y": 0.1}
             theme_icon_color: "Custom"
             icon_color: 0.545, 0.518, 0.310, 1
-            on_release: app.open_camera()
+            on_release:
+                app.root.current = "inputtext"
+                root.manager.transition.direction = "up"
 
 
 
