@@ -14,6 +14,8 @@ from kivymd.uix.textfield import MDTextField
 from kivy.uix.textinput import TextInput
 import os
 
+from backendMain import iterateUserStr
+
 Window.size=(270, 600)
 
 page = {}
@@ -32,6 +34,7 @@ class InputImage(Screen):
         # img = Image.open(tmep)
         
         characters[charByUser] = charByUser 
+        
         return charByUser
 
 class FilePickerScreen(Screen):
@@ -69,11 +72,10 @@ class TextToHandd(MDApp):
     def call_inpTxt(self):
     
         input_screen = self.root.get_screen("inputtext")
-        text = input_screen.getText()  
-        user_list = list(text)
-        user_data = ''.join(user_list)
-        print(user_list)
-        return text
+        user_data = input_screen.getText()  
+        iterateUserStr(user_data)
+        print(user_data)
+        return user_data    
     
     def file_selected(self, selection, source):
         if selection:
