@@ -1,4 +1,3 @@
-# mainFront.py
 from kivymd.app import MDApp
 from kivy.uix.label import Label
 from kivymd.uix.label import MDLabel

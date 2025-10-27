@@ -113,11 +113,24 @@
             size_hint: None, None
             size: 60, 60           # button size
             icon_size: "50sp"        # icon inside the button
-            pos_hint: {"center_x": 0.5, "center_y": 0.1}
+            pos_hint: {"center_x": 0.75, "center_y": 0.1}
             theme_icon_color: "Custom"
             icon_color: 0.545, 0.518, 0.310, 1
             on_release:
                 on_release: app.call_inpTxt()
+
+        
+        MDIconButton:
+            icon: "arrow-down-circle"
+            size_hint: None, None
+            size: 60, 60           # button size
+            icon_size: "50sp"        # icon inside the button
+            pos_hint: {"center_x": 0.25, "center_y": 0.1}
+            theme_icon_color: "Custom"
+            icon_color: 0.545, 0.518, 0.310, 1
+            on_release:
+                app.root.current = "inputimg"
+                root.manager.transition.direction = "down"
             
 
 <DisplayOutput@Screen>:
