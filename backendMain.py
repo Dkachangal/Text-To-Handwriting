@@ -4,6 +4,7 @@ from pathlib import Path
 import numpy as np
 from skimage.filters import threshold_otsu
 import datetime
+# from kivymd.app import MDApp
 
 from mainFront import characters
 from mainFront import TextToHandd
@@ -52,18 +53,17 @@ space = Image.open('space.png')
 chars[" "] = space # defining space
 
 # LET THE STRING FROM USER BE :
-# user_data = "divyansh kachangal this is some text in the area this is some more text so as to increase the length of the sentence"
-# user_data = input("Enter ")
+user_data = "divyansh kachangal this is some text in the area this is some more text so as to increase the length of the sentence"
+user_data = input("Enter ")
 # Let the Page selected by the user be page:
 page = Image.open('p3.jpg')
 # print(type(page.width))
 x_max = 100
 # FUNCTION 3 to iterate the user defined string and paste each element on the page
 # WRITINGzz
-
-def iterateUserStr(user_data):
+def iterateUserStr():
     global page
-    # global user_data
+    global user_data
     global x_max
     x = 100
 
@@ -100,4 +100,4 @@ def iterateUserStr(user_data):
     plt.show()
     # page.show()
 
-# iterateUserStr()
+iterateUserStr()

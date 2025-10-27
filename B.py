@@ -77,21 +77,30 @@ def iterateUserStr(user_data, chars, page_path):
     x_max = page.width
 
     for ch in user_data:
-        if ch not in chars:
-            continue
 
-        img = chars[ch].convert("RGBA")
-        hei = y - img.height
-        page.paste(img, (x, hei), img)
-
-        if (x + 41 > x_max - img.width):
-            x = 100
-            y += 54
-            x -= 30
+        img = chars[ch]
+        if x == 100:
+            if ch == " ":
+                
+                continue
+        if img.mode != 'RGBA':
+            img_rgba = img.convert('RGBA')
         else:
-            x += 30
+            img_rgba = img
+
+        hei = y - img_rgba.height
+        page.paste(img_rgba, (x, hei), img_rgba)
+        # print(x, y)
+        print(img_rgba.width)
+        # the new line conditioin
+        if (x + 41 > x_max-img_rgba.width):
+            x = 100
+            y+=54
+            x-=30
+        if (x+30 < x_max+41):
+            x +=30
 
     plt.imshow(page)
-    plt.axis("off")
+    # plt.axis("off")
     plt.show()
     print("✅ Final handwritten page generated.")

@@ -14,7 +14,7 @@ from kivymd.uix.textfield import MDTextField
 from kivy.uix.textinput import TextInput
 import os
 
-from backendMain import iterateUserStr
+
 
 Window.size=(270, 600)
 
@@ -34,7 +34,6 @@ class InputImage(Screen):
         # img = Image.open(tmep)
         
         characters[charByUser] = charByUser 
-        
         return charByUser
 
 class FilePickerScreen(Screen):
@@ -73,7 +72,6 @@ class TextToHandd(MDApp):
     
         input_screen = self.root.get_screen("inputtext")
         user_data = input_screen.getText()  
-        iterateUserStr(user_data)
         print(user_data)
         return user_data    
     
