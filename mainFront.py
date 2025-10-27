@@ -18,6 +18,8 @@ Window.size=(270, 600)
 
 page = {}
 characters = {}
+# user_data = []
+
 
 # md_bg_color = (1, 0.9, 0.3, 1)
 
@@ -68,7 +70,9 @@ class TextToHandd(MDApp):
     
         input_screen = self.root.get_screen("inputtext")
         text = input_screen.getText()  
-        print(text)
+        user_list = list(text)
+        user_data = ''.join(user_list)
+        print(user_list)
         return text
     
     def file_selected(self, selection, source):

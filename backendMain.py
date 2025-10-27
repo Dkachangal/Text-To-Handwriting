@@ -4,8 +4,28 @@ from pathlib import Path
 import numpy as np
 from skimage.filters import threshold_otsu
 import datetime
+# from kivymd.app import MDApp
 
 from mainFront import characters
+from mainFront import TextToHandd
+
+
+# def get_text_from_frontEnd():
+#     app = MDApp.get_running_app()
+#     if app:
+#         text = app.get_text()
+#         return text
+#     else:
+#         print("NOT DONE YET!!! TRY AGAIN")
+#         return None
+# user_data = get_text_from_frontEnd()
+    
+
+user_data_func_call = TextToHandd()
+
+user_data1 = user_data_func_call.call_inpTxt()
+
+print(f"The text from the user we got is :{user_data1} ")
 # FUNCTION 1 to input and save jpg image in folder name characters
 # connects to the frontend
 # to make once front end input image box in done
