@@ -15,10 +15,13 @@ from kivy.uix.textinput import TextInput
 from pathlib import Path
 import os
 
+
 # backend functions
 from B import jpg2png, createDict, iterateUserStr
 
+
 Window.size = (270, 600)
+
 
 # global storages
 page = {}
@@ -39,10 +42,15 @@ class InputImage(Screen):
             return None
         return charByUser
 
+class FontSelector(Screen):
+    
+    pass
+
 
 # ---------- SCREEN 2: File Picker ----------
-class FilePickerScreen(Screen):
-    pass
+# class FilePickerScreen(Screen):
+#     pass
+
 
 
 # ---------- SCREEN 3: Input text ----------
@@ -130,6 +138,8 @@ class TextToHandd(MDApp):
 
         print("✅ Process completed successfully.")
         return user_data
+
+
 
 
 # ---------- RUN ----------

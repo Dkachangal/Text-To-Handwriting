@@ -8,6 +8,7 @@ import os
 
 # ---------- FUNCTION 1: Convert all JPG character images to transparent PNGs ----------
 def jpg2png(characters_dict, output_folder="DKChars"):
+
     """
     Converts each .jpg character image to a transparent .png and saves in DKChars folder.
     """
@@ -15,11 +16,14 @@ def jpg2png(characters_dict, output_folder="DKChars"):
     output_path.mkdir(exist_ok=True)
 
     for ch, img_path in characters_dict.items():
+        if ch == '\n':
+            continue
         if not os.path.exists(img_path):
             print(f"⚠️ File not found for '{ch}' at {img_path}")
             continue
 
         try:
+            
             img = Image.open(img_path).convert("L")
             gray = np.array(img)
             thresh = threshold_otsu(gray)
@@ -76,18 +80,27 @@ def iterateUserStr(user_data, chars, page_path):
     x_max = page.width
 
     for ch in user_data:
-
-        img = chars[ch]
+        
+        if ch != '\n':
+            img = chars[ch]
+        else:
+            hei+=60
         if x == 100:
             if ch == " ":
-                
                 continue
+
+        
         if img.mode != 'RGBA':
             img_rgba = img.convert('RGBA')
         else:
             img_rgba = img
 
+        if ch == '\n':
+            hei+=60
         hei = y - img_rgba.height
+
+        
+
         page.paste(img_rgba, (x, hei), img_rgba)
         # print(x, y)
         print(img_rgba.width)
