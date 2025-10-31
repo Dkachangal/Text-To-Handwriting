@@ -172,11 +172,11 @@
             pos_hint: {"center_x": 0.5, "top": 0.92}
 
         ScrollView:
-    MDGridLayout:
-        cols: 2
-        adaptive_height: True
-        padding: dp(20)
-        spacing: dp(10)
+            MDGridLayout:
+                cols: 2
+                adaptive_height: True
+                padding: dp(20)
+                spacing: dp(10)
 
         MDCard:
             pos_hint:{"center_x": 0.5}
@@ -184,6 +184,10 @@
             size: dp(250), dp(150)
             ripple_behavior: True
             # on_release: app.open_font_input("Roboto")
+            on_release: 
+                root.pre_font_Dk()
+                app.root.current = "inputtext"
+                root.manager.transition.direction = "down"
 
             MDLabel:
                 text: "Font Example"

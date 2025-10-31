@@ -43,8 +43,23 @@ class InputImage(Screen):
         return charByUser
 
 class FontSelector(Screen):
-    
-    pass
+    def pre_font_Dk(self):
+        charactersDK = {}
+        jpgimgpath = Path('characters')
+        global preFont
+        preFont = True
+        str = 'abcdefghijklmnopqrstuvwxyz'
+
+        for i in str:
+            new = jpgimgpath/f'{i}1.png'
+            img = Image.open(new)
+            charactersDK[i] = img
+            print(charactersDK[i])
+        spcPath = jpgimgpath/'space.png'
+        space = Image.open(spcPath)
+        charactersDK[" "] = space
+
+        return charactersDK
 
 
 # ---------- SCREEN 2: File Picker ----------
@@ -109,14 +124,17 @@ class TextToHandd(MDApp):
         return char
 
     # ----------- Generate Output -----------
+    preFont = False
     def call_inpTxt(self):
+        global preFont
         """When user presses the pencil button."""
         if 'page' not in page:
             print("⚠️ Please select a page first!")
             return
-        if not characters:
-            print("⚠️ Please select character images first!")
-            return
+        if preFont == False:
+            if not characters:
+                print("⚠️ Please select character images first!")
+                return
 
         input_screen = self.root.get_screen("inputtext")
         user_data = input_screen.getText()
@@ -128,16 +146,24 @@ class TextToHandd(MDApp):
         print(f"📝 User text: {user_data}")
 
         # Step 1: Convert JPG → transparent PNG
-        jpg2png(characters)
 
-        # Step 2: Load PNGs
-        chars = createDict("DKChars")
+        if preFont == False:
+            jpg2png(characters)
+            # Step 2: Load PNGs
+            chars = createDict("DKChars")
+        dkFont = FontSelector()
 
+        chars = dkFont.pre_font_Dk()
         # Step 3: Generate final handwritten page
         iterateUserStr(user_data, chars, page['page'])
 
         print("✅ Process completed successfully.")
         return user_data
+
+# select pre inserted font
+
+
+
 
 
 
