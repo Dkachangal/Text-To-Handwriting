@@ -49,6 +49,10 @@ class FontSelector(Screen):
             print(charactersDK[i])
         spcPath = jpgimgpath/'space.png'
         space = Image.open(spcPath)
+
+        pagePath = jpgimgpath/'Pagenew.jpg'
+        popen = Image.open(pagePath)
+        charactersDK["page"] = popen
         charactersDK[" "] = space
 
         return charactersDK
@@ -74,6 +78,7 @@ class DisplayOutput(Screen):
 
 # ---------- MAIN APP ----------
 class TextToHandd(MDApp):
+    preFont = False
     def build(self):
         # Load KV file
         Builder.load_file("texttohandd.kv")
@@ -89,9 +94,19 @@ class TextToHandd(MDApp):
         )
 
     def file_selected(self, selection, source):
+        global preFont
         if not selection:
             print("⚠️ File selection cancelled.")
             return
+
+# TO WORK ON :
+# TO MAKE THE FN SUCH THAT ON CLICKING DK FONT, THE PAGE AUTOMATICALLY GETS SELECTED
+        if preFont == True:
+            dkPage = FontSelector()
+            openPage = dkPage.pre_font_Dk()
+            selected_file = openPage["page"]
+            page['page'] = selected_file
+            print(f"✅ Pre-inserted font page selected: {page['page']}")
 
         selected_file = os.path.normpath(selection[0])
 
@@ -116,13 +131,15 @@ class TextToHandd(MDApp):
         return char
 
     # ----------- Generate Output -----------
-    preFont = False
+    
     def call_inpTxt(self):
         global preFont
         """When user presses the pencil button."""
-        if 'page' not in page:
-            print("⚠️ Please select a page first!")
-            return
+        if preFont == False:
+            if 'page' not in page:
+                print("⚠️ Please select a page first!")
+                return
+            
         if preFont == False:
             if not characters:
                 print("⚠️ Please select character images first!")
