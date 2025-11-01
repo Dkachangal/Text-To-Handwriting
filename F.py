@@ -1,17 +1,9 @@
 from kivymd.app import MDApp
-from kivy.uix.label import Label
-from kivymd.uix.label import MDLabel
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.core.window import Window
-from kivy.uix.floatlayout import FloatLayout
-from kivymd.uix.button import MDFillRoundFlatButton
-from kivymd.uix.button import MDIconButton
-from kivy.uix.button import Button
 from kivy.lang import Builder
 from plyer import filechooser
 from PIL import Image
-from kivymd.uix.textfield import MDTextField
-from kivy.uix.textinput import TextInput
 from pathlib import Path
 import os
 

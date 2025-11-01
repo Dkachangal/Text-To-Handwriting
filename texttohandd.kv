@@ -183,12 +183,24 @@
             size_hint: None, None
             size: dp(250), dp(150)
             ripple_behavior: True
-            # on_release: app.open_font_input("Roboto")
             on_release: 
                 root.pre_font_Dk()
                 app.root.current = "inputtext"
                 root.manager.transition.direction = "down"
 
+            MDIconButton:
+                icon: "a1.png"
+                text: "Divyansh Font"
+                halign: "center"
+        MDCard:
+            pos_hint: {"center_x": 0.5, "center_y": 0.4}
+            size_hint: None, None
+            size: dp(250), dp(150)
+            ripple_behavior: True
+            on_release:
+                root.pre_font_Dk()
+                app.root.current = "inputtext"
+                root.manager.transition.direction = "down"
             MDIconButton:
                 icon: "a1.png"
                 text: "Divyansh Font"
